@@ -1,4 +1,6 @@
-public class Tabuleiro{
+package workspace.lab05;
+
+public class tabuleiro{
     
     Piece vTabuleiro[][] = new Piece[7][7];
     Piece movingPiece, middlePiece, endPiece;
@@ -12,20 +14,20 @@ public class Tabuleiro{
     
     char getState(Piece piece){
         if(piece.state == 0){
-            return "-";
+            return '-';
         }
         
         else if(piece.state == 1){
-            return "P";
+            return 'P';
         }
         else{
-            return " ";
+            return ' ';
         }
     }
 
     void mostrar(){
         for(int i = 0; i < 7; i++){
-            System.Out.print(i+1 + " ");
+            System.out.print(i+1 + " ");
             for(int j= 0; i<7; i++){
                 System.out.print(getState(vTabuleiro[i][j]) + " ")
             }
@@ -38,34 +40,39 @@ public class Tabuleiro{
     void connectPieces(char init_col, char init_row,char end_col, char end_row){
         
         
-        movingPiece = vTabuleiro[(init_col)-"a"][(init_row)-"1"];
-        endPiece= vTabuleiro[(end_col)-"a"][(end_row)-"1"];
+        movingPiece = vTabuleiro[(init_col)-'a'][(init_row)-'1'];
+        endPiece= vTabuleiro[(end_col)-'a'][(end_row)-'1'];
         
         char middle;
+        int next_value;
 
         
         if(init_row == end_row){
             if(init_col > end_col){
-                middle = end_col + 1;
+                next_value = (int)end_col + 1;
+                middle = (char) (next_value);
             }
             else{
-                middle = init_col +1;
+                next_value = (int)init_col + 1;
+                middle = (char)next_value;
             }
             
             
-            middlePiece = vTabuleiro[middle - "a"][(end_row)-"1"];
+            middlePiece = vTabuleiro[middle - 'a'][(end_row)-'1'];
             
         }else if(end_col == init_col){
             
             if(init_row > end_row){
-                middle = end_row + 1;
+                next_value = (int)end_row + 1;
+                middle = (char)next_value;
             }
             else{
-                middle = init_row +1;
+                next_value = (int)init_row + 1;
+                middle = (char)next_value;
             }
             
             
-            middlePiece = vTabuleiro[end_col - "a"][(middle)-"1"];
+            middlePiece = vTabuleiro[end_col - 'a'][(middle)-'1'];
         }
         
         movingPiece.state = 0;
@@ -73,8 +80,5 @@ public class Tabuleiro{
         endPiece.state = 1;
         
         mostrar();
-        
-        
-        
     }
 }
