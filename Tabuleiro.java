@@ -4,7 +4,7 @@ public class Tabuleiro{
     Piece movingPiece, middlePiece, endPiece;
     
     void createTable(int i, int j, Piece piece){
-        vTabuleiro[i][j] = piece;        
+        vTabuleiro[i][j] = piece;     
     
     } 
     
@@ -22,22 +22,24 @@ public class Tabuleiro{
     }
 
     void mostrar(){
+      int row;
         for(int i = 0; i < 7; i++){
-            System.out.print(i+1 + " ");
-            for(int j= 0; i<7; i++){
+            row = i + 1;
+            System.out.print(row + " ");
+            for(int j= 0; j<7; j++){
                 System.out.print(getState(vTabuleiro[i][j]) + " ");
             }
             System.out.print("\n");
         }
         
-        System.out.print(" " +"a "+"b "+"c "+ "d "+ "e "+ "f "+ "g");
+        System.out.println(" " +"a "+"b "+"c "+ "d "+ "e "+ "f "+ "g" + "\n");
     }
     
     void connectPieces(char init_col, char init_row,char end_col, char end_row){
         
         
-        movingPiece = vTabuleiro[(init_col)-'a'][(init_row)-'1'];
-        endPiece= vTabuleiro[(end_col)-'a'][(end_row)-'1'];
+        movingPiece = vTabuleiro[(init_row)-'1'][(init_col)-'a'];
+        endPiece= vTabuleiro[(end_row)-'1'][(end_col)-'a'];
         
         char middle;
         int next_value;
@@ -54,7 +56,7 @@ public class Tabuleiro{
             }
             
             
-            middlePiece = vTabuleiro[middle - 'a'][(end_row)-'1'];
+            middlePiece =vTabuleiro[(end_row)-'1'][middle - 'a'];
             
         }else if(end_col == init_col){
             
@@ -68,7 +70,7 @@ public class Tabuleiro{
             }
             
             
-            middlePiece = vTabuleiro[end_col - 'a'][(middle)-'1'];
+            middlePiece = vTabuleiro[(middle)-'1'][end_col - 'a'];
         }
         
         movingPiece.state = 0;

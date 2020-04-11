@@ -16,7 +16,7 @@ public class Main{
 
         for(int i = 0; i < 7;i++){
             for(int j=0; j<7; j++){
-                if((i<=1 && j<=1) || (i>=5 && j>=5)){
+                if((i<=1 && j<=1) || (i>=5 && j>=5) || (i<=1 && j>=5) || i>=5 && j<=1 ){
                     state = -1;
                 }
                 else if(i==3 && j==3){
@@ -29,6 +29,9 @@ public class Main{
             }
         }
 
+        System.out.println("Tabuleiro inicial:");
+        tabuleiro.mostrar();
+
         for(int i = 0; i < commands.length; i++){
 
             command = commands[i];
@@ -37,6 +40,8 @@ public class Main{
         
             end_col= command.charAt(3);
             end_row = command.charAt(4);
+
+            System.out.println("Source: " +init_col + init_row + "\nTarget: "+ end_col + end_row);
         
             tabuleiro.connectPieces(init_col, init_row, end_col, end_row);
         
