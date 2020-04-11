@@ -1,18 +1,16 @@
-package workspace.lab05;
-
-public class trab{
+public class Main{
     public static void main(String args[]){
 
         char init_col, init_row, end_col, end_row;
         String command;
 
         CSVReader csv = new CSVReader();
-        csv.setDataSource("../../../src/db/arq001.csv");
+        csv.setDataSource(../../../src/db/arq001.csv);
         String commands[] = csv.requestCommands();
 
 
     
-        tabuleiro tabuleiro = new tabuleiro();
+        Tabuleiro tabuleiro = new Tabuleiro();
 
         int state;
 
@@ -31,7 +29,7 @@ public class trab{
             }
         }
 
-        for(int i = 0; i < commands.size(); i++){
+        for(int i = 0; i < commands.length; i++){
 
             command = commands[i];
             init_col = command.charAt(0);

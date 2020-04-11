@@ -1,6 +1,4 @@
-package workspace.lab05;
-
-public class tabuleiro{
+public class Tabuleiro{
     
     Piece vTabuleiro[][] = new Piece[7][7];
     Piece movingPiece, middlePiece, endPiece;
@@ -8,9 +6,7 @@ public class tabuleiro{
     void createTable(int i, int j, Piece piece){
         vTabuleiro[i][j] = piece;        
     
-    }
-    
-    
+    } 
     
     char getState(Piece piece){
         if(piece.state == 0){
@@ -29,7 +25,7 @@ public class tabuleiro{
         for(int i = 0; i < 7; i++){
             System.out.print(i+1 + " ");
             for(int j= 0; i<7; i++){
-                System.out.print(getState(vTabuleiro[i][j]) + " ")
+                System.out.print(getState(vTabuleiro[i][j]) + " ");
             }
             System.out.print("\n");
         }
