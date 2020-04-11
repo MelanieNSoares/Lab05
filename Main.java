@@ -5,7 +5,7 @@ public class Main{
         String command;
 
         CSVReader csv = new CSVReader();
-        csv.setDataSource(../../../src/db/arq001.csv);
+        csv.setDataSource("Untitled spreadsheet - Sheet1.csv");
         String commands[] = csv.requestCommands();
 
 
